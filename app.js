@@ -23,7 +23,7 @@ const User = require("./models/user.js");
 const dburl = process.env.ATLASDB_URL;
 const secret = process.env.SECRET || "fallbacksecret";
 
-// MongoDB Connection
+// MongoDB connection
 async function main() {
     await mongoose.connect(dburl);
 }
