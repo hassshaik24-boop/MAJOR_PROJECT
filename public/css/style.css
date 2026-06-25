@@ -1,8 +1,9 @@
-/* Navbar */
-
+/* ── Navbar ── */
 .navbar {
-    height: 5rem;
+    height: auto;
+    min-height: 4rem;
     background-color: white;
+    padding: 0.5rem 1rem;
 }
 
 .fa-compass {
@@ -14,11 +15,17 @@
     color: #222222 !important;
 }
 
-/* Search Bar */
-
+/* ── Search Bar ── */
 .form-inline {
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-inline .form-control {
+    flex: 1;
+    min-width: 0;
 }
 
 .form-control {
@@ -33,6 +40,7 @@
     border: none !important;
     padding: 0.5rem 1rem !important;
     margin-left: 0.5rem;
+    white-space: nowrap;
 }
 
 .btn-search:hover {
@@ -41,19 +49,19 @@
 }
 
 .btn-search i {
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
 }
 
-/* Footer */
-
+/* ── Footer ── */
 .f-info {
     text-align: center;
     display: flex;
-    height: 8rem;
+    min-height: 6rem;
     background-color: #ebebeb;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-evenly;
+    padding: 1rem;
 }
 
 .f-info-links,
@@ -63,11 +71,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .f-info-links a {
     text-decoration: none;
     color: #222222;
+    font-size: 0.85rem;
 }
 
 .f-info-links a:hover {
@@ -79,8 +90,7 @@
     font-size: 1.2rem;
 }
 
-/* Body */
-
+/* ── Body ── */
 body {
     display: flex;
     flex-direction: column;
@@ -89,18 +99,20 @@ body {
 
 .container {
     flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-/* Filters */
-
+/* ── Filters ── */
 #filters {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
-    margin: 1rem 0 2rem 0;
+    gap: 1.2rem;
+    margin: 1rem 0 1.5rem 0;
     padding-bottom: 1rem;
     border-bottom: 1px solid #e5e5e5;
+    overflow-x: auto;
 }
 
 .filter {
@@ -108,6 +120,7 @@ body {
     opacity: 0.7;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-width: 50px;
 }
 
 .filter:hover {
@@ -122,11 +135,10 @@ body {
 .filter p {
     margin-top: 0.3rem;
     margin-bottom: 0;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
-/* Tax Toggle */
-
+/* ── Tax Toggle ── */
 .tax-info {
     display: none;
 }
@@ -134,33 +146,34 @@ body {
 .tax-toggle {
     border: 1px solid black;
     border-radius: 1rem;
-    height: 3.25rem;
-    padding: 1rem;
-    margin-left: 3rem;
+    height: auto;
+    padding: 0.6rem 1rem;
+    margin-left: auto;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
-/* Listing Cards */
-
+/* ── Listing Cards ── */
 .listing-card {
     border: none !important;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
-    height: 220px !important;
+    height: 200px !important;
     object-fit: cover !important;
-    aspect-ratio: 4/3;
 }
+
 .card-body {
-    padding: 0 !important;
+    padding: 0.5rem 0 0 0 !important;
 }
 
 .card-text {
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
 }
 
 .listing-link {
@@ -168,8 +181,7 @@ body {
     color: #222222;
 }
 
-/* Card Hover Effect */
-
+/* ── Card Hover Effect ── */
 .card-img-overlay {
     opacity: 0;
     transition: 0.2s ease;
@@ -180,19 +192,20 @@ body {
     background-color: white;
 }
 
-/* Buttons */
-
+/* ── Buttons ── */
 .add-btn,
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
-/* Show Page */
-
+/* ── Show Page ── */
 .btns {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    padding-left: 1rem;
 }
 
 .show-card {
@@ -200,19 +213,92 @@ body {
     padding-right: 0;
 }
 
-/* Show Page Image */
 .show-img {
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     border-radius: 1rem;
 }
 
-/* New/Edit Form Image Preview */
+/* ── New/Edit Form ── */
 .form-img-preview {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 0.5rem;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .form-inline {
+        max-width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    #filters {
+        gap: 1rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+    }
+
+    .tax-toggle {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .card-img-top {
+        height: 180px !important;
+    }
+
+    .show-img {
+        height: 220px;
+    }
+
+    .show-card {
+        margin: 0 !important;
+    }
+
+    .col-8.offset-2,
+    .col-6.offset-3 {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 0 0.5rem !important;
+    }
+
+    .btns {
+        padding-left: 0.5rem;
+    }
+
+    .btns a,
+    .btns button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .card.col-5 {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* ── Tablet ── */
+@media (max-width: 992px) {
+    .form-inline {
+        max-width: 100%;
+    }
+
+    .show-img {
+        height: 280px;
+    }
+
+    .col-8.offset-2 {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
