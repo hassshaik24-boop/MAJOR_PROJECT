@@ -9,7 +9,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const MongoStore = require('connect-mongo').default || require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -32,11 +32,9 @@ main()
     .catch((err) => console.log("DB Connection Error:", err));
 
 // Mongo Session Store
-const store = MongoStore.create({
+const store = new MongoStore({
     mongoUrl: dburl,
-    crypto: {
-        secret: secret,
-    },
+    secret: secret,
     touchAfter: 24 * 3600,
 });
 
