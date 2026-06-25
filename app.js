@@ -80,7 +80,10 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 });
-
+// Home redirect
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 // Routes
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
