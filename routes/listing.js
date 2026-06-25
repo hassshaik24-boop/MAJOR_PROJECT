@@ -11,10 +11,8 @@ const upload =multer({storage});
 
 router.
 route("/")
-.get( wrapAsync(listingContoller.index))
- .post( isLoggedIn, validateListing,upload.single("listing[image]") ,wrapAsync(listingContoller.createListing))
-
-
+.get(wrapAsync(listingContoller.index))
+.post(isLoggedIn, upload.single("listing[image]"), validateListing, wrapAsync(listingContoller.createListing))
 router.get("/new", isLoggedIn,listingContoller.renderNewForm);
 
 router.route("/:id")
