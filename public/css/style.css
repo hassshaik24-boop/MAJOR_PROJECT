@@ -302,3 +302,32 @@ body {
         margin-left: 0 !important;
     }
 }
+/* Mobile responsive cards */
+@media (max-width: 768px) {
+  .listing-card img {
+    height: 160px !important;
+    object-fit: cover;
+  }
+
+  .listing-card .card-body {
+    padding: 8px !important;
+  }
+
+  .listing-card .card-body p {
+    font-size: 13px !important;
+  }
+
+  #filters {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 8px;
+  }
+
+  .filter {
+    display: inline-block !important;
+  }
+
+  .tax-toggle {
+    display: none;
+  }
+}
