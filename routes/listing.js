@@ -17,7 +17,7 @@ router.get("/new", isLoggedIn,listingContoller.renderNewForm);
 
 router.route("/:id")
 .get(wrapAsync(listingContoller.showListing))
-.put(isLoggedIn, isOwner, validateListing, wrapAsync(listingContoller.updateListing))
+.put(isLoggedIn, isOwner, upload.single("image"), validateListing, wrapAsync(listingContoller.updateListing))
 .delete( isLoggedIn, isOwner, wrapAsync(listingContoller.destroyListing));
 
 
